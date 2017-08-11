@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<title> Registration </title>
+			<link rel='stylesheet' type='text/css' href="{{ url_for('static', filename='css/style.css')}}"
+		</head>
+		<body>
+			<h1> Register </h1>
+		  	<form action='/process' method='POST'>
+    			First Name :<input type="text" name="first_name" id="name">
+    			Last Name :<input type="text" name="last_name" id="name">Email :<input type="text" name="email" id="name">
+    			Password :<input type="text" name="password" id="name">
+    			<input type="submit" value="Add">
+			</form>
+			{% with messages = get_flashed_messages() %}
+			{% if messages %}
+			{% for message in messages %}
+			<p>{{message}}</p>
+			{% endfor %}
+			{% endif %}
+			{% endwith %}
+			<h1> Login </h1>
+			<form action='/login' method='POST'>
+				Email :<input type="text" name="email" id="name">
+				Password :<input type="text" name="password" id="name">
+				<input type="submit" value="Login">
+			</form>
+<!-- 			<a href='/process'><button> submit </button></a> -->
+		</body>
+	</html>
